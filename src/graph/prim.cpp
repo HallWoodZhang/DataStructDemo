@@ -1,14 +1,14 @@
 #include <iostream>
 #include <cstring>
 
-#include "graph/graph_def.cpp"
+#include "graph/graph_def.h"
 
 #define TMP_VAL MAXINTVAL
 
 using namespace std;
 
 static bool visited[MAXVEXNUM];
-static int lowcost[MAXVEXNUM]
+static int lowcost[MAXVEXNUM];
 
 template <typename T>
 int Prim(MatGraph<T>* G, int startVexId = 0) {
