@@ -1,3 +1,6 @@
+#ifndef GRAPH_DEF_H
+#define GRAPH_DEF_H
+
 #include <cstring>
 
 
@@ -84,3 +87,5 @@ public:
     
     ArcNode<T>* next;
 };
+
+#endif

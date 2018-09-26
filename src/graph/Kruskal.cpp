@@ -2,6 +2,7 @@
 #include <algorithm>
 
 #include "graph/graph_def.h"
+#include "graph/graph_algorithm.h"
 
 using namespace std;
 
@@ -40,7 +41,7 @@ static inline void initRoads(MatGraph<T>*G, Road*& roads) {
 }
 
 template <typename T>
-int Kruskal(MatGraph<T>* G, Road* roads = nullptr) {
+int Kruskal(MatGraph<T>* G, Road* roads) {
 
     initRoads(G, roads);
     int from, to;

@@ -2,6 +2,8 @@
 #include <cstring>
 
 #include "graph/graph_def.h"
+#include "graph/graph_algorithm.h"
+
 
 #define TMP_VAL MAXINTVAL
 
@@ -11,7 +13,7 @@ static bool visited[MAXVEXNUM];
 static int lowcost[MAXVEXNUM];
 
 template <typename T>
-int Prim(MatGraph<T>* G, int startVexId = 0) {
+int Prim(MatGraph<T>* G, int startVexId) {
     int sum = 0;
     memset(visited, false, sizeof(visited));
     for(int i = 0; i < G->vexNum; ++i) {
