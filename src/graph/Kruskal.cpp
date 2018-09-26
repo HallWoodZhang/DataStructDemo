@@ -30,7 +30,7 @@ static inline void initRoads(MatGraph<T>*G, Road*& roads) {
     if(!roads) {
         roads = road;
         int curr = -1;
-        for(int i = 0; i < MAXEDGENUM; ++i)
+        for(int i = 0; i < MAXVEXNUM; ++i)
             for(int j = 0; j <= i; ++j)
                 if(G->edges[i][j] && G->edges[i][j] != MAXINTVAL)
                     road[++curr] = (Road){i, j, G->edges[i][j]};
@@ -41,7 +41,7 @@ static inline void initRoads(MatGraph<T>*G, Road*& roads) {
 
 template <typename T>
 int Kruskal(MatGraph<T>* G, Road* roads = nullptr) {
-    
+
     initRoads(G, roads);
     int from, to;
     int sum = 0;
