@@ -15,6 +15,8 @@ template <typename T> class ArcNode;
 template <typename T> class ArcVex;
 template <typename T> class ArcGraph;
 
+struct Road;
+
 
 struct Graph {
 public:
@@ -78,6 +80,7 @@ class ArcNode {
 public:
     friend class ArcGraph<T>;
     int adjVexId;
+    int weight;
     
     ArcNode<T>* next;
 };
