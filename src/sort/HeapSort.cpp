@@ -21,7 +21,7 @@ static void Sift(T heap[], int first, int last, bool (*cmp)(const T&, const T&))
     T tmp = heap[i];
     while(j <= last) {
         if(j < last && cmp(heap[j], heap[j+1])) ++j;
-        if(cmp(heap[i], heap[j])) {
+        if(cmp(tmp, heap[j])) {
             heap[i] = heap[j];
             i = j;
             j = i << 1;
@@ -32,7 +32,7 @@ static void Sift(T heap[], int first, int last, bool (*cmp)(const T&, const T&))
 
 // common sense: heap[0] is useless
 template <typename T>
-void heapSort(T heap[], int lastHeapId, bool (*cmp)(const T&, const T&)) {
+void HeapSort(T heap[], int lastHeapId, bool (*cmp)(const T&, const T&)) {
     for(int i = lastHeapId >> 1; i >= 1; --i)
         Sift(heap, i, lastHeapId, cmp);
     for(int i = lastHeapId; i >= 2; --i) {

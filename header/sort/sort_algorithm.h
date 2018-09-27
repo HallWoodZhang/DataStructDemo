@@ -17,6 +17,9 @@ template <typename T>
 void SelectSort(T* beg, T* end);
 
 template <typename T>
-void heapSort(int heap[], int lastHeapId, bool (*cmp)(const T&, const T&));
+void HeapSort(int heap[], int lastHeapId, bool (*cmp)(const T&, const T&));
+
+template <typename T>
+void MergeSort(T* beg, T* end);
 
 #endif
