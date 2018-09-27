@@ -21,7 +21,7 @@ bool TopSort(const ArcGraph<T>& G, int indegree[MAXVEXNUM]) {
         ++counter;
         cout << tmpVexId << ' ';
 
-        ArcNode* tmpPtr = G.adjlist[tmpVexId].firstArcPtr;
+        ArcNode<T>* tmpPtr = G.adjlist[tmpVexId].firstArcPtr;
         while(tmpPtr) {
             int nextVexId = tmpPtr->adjVexId;
             indegree[nextVexId] -= 1;

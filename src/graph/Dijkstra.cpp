@@ -9,6 +9,12 @@ static int dist[MAXVEXNUM];
 static int path[MAXVEXNUM];
 static bool set[MAXVEXNUM];
 
+/**
+ *  G: the mat graph 
+ *  startVexId: the seed 
+ *  
+ *  return: the path about the result
+ */
 template <typename T>
 int* Dijkstra(MatGraph<T>& G, int startVexId) {
     // init
