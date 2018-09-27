@@ -29,6 +29,5 @@ bool TopSort(const ArcGraph<T>& G, int indegree[MAXVEXNUM]) {
             tmpPtr = tmpPtr->next;
         }
     }
-
     return counter == G.vexNum;
 }
