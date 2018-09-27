@@ -6,7 +6,7 @@
 
 #define MAXEDGENUM (255*255)
 #define MAXVEXNUM 255
-#define MAXINTVAL (~(unsigned int)0 >> 1)
+#define MAXINTVAL (~((unsigned int)0) >> 1)
 
 // forward def
 struct Graph;
