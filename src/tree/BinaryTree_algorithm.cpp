@@ -69,6 +69,8 @@ template <typename T>
 extern void postorderVisit(const BinaryTreeNode<T>* root, 
     StackTag, void (*visit)(const BinaryTreeNode<T>*)) {
     if(!root) return ;
+    bool lchild_visited = false;
+    BinaryTreeNode<T>* pre = nullptr;
     BinaryTreeNode<T>* curr = root;
     std::stack<BinaryTreeNode<T>* > stk;
     do {
@@ -76,17 +78,17 @@ extern void postorderVisit(const BinaryTreeNode<T>* root,
             stk.push(curr);
             curr = curr->lchild;
         }
-        bool lchild_visited = true;
-        BinaryTreeNode<T>* pre = nullptr;
+        lchild_visited = true;
+        pre = nullptr;
         while(!stk.empty() and lchild_visited) {
             curr = stk.top();
             if(curr->rchild == pre) {
                 stk.pop();
-                visit(pre);
+                visit(curr);
                 pre = curr;
             } else {
                 curr = curr->rchild;
-                lchild_visited = true;
+                lchild_visited = false;
             }
         }
     } while(!stk.empty());

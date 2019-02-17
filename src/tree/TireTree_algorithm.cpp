@@ -14,7 +14,7 @@ extern inline TireNode* createTireNode() {
     return node;
 }
 
-extern  void TireTree::insertWord(TireNode* tree, const char* cstr) {
+extern void TireTree::insertWord(TireNode* tree, const char* cstr) {
     TireNode* curr = tree;
     if(!curr) return ;
     const char* ch = cstr;
@@ -29,20 +29,20 @@ extern  void TireTree::insertWord(TireNode* tree, const char* cstr) {
     curr->cnt += 1;
 }
 
-extern  void TireTree::insertWord(TireNode* tree, const std::string& str) {
+extern void TireTree::insertWord(TireNode* tree, const std::string& str) {
     TireNode* curr = tree;
     if(!curr) return ;
     for(auto it = str.begin(); it != str.end(); ++it) {
         int offset = *it - 'a';
         if(curr->children[offset] == nullptr) {
-            curr = curr->children[offset];
+            curr->children[offset] = createTireNode();
         }
         curr = curr->children[offset];
     }
     curr->cnt += 1;
 }
 
-extern  int TireTree::searchWord(TireNode* tree, const char* cstr) {
+extern int TireTree::searchWord(TireNode* tree, const char* cstr) {
     TireNode* curr = tree;
     if(!curr) return SEARCH_ERR;
 
@@ -56,7 +56,7 @@ extern  int TireTree::searchWord(TireNode* tree, const char* cstr) {
     return curr->cnt;
 }
 
-extern  int TireTree::searchWord(TireNode* tree, const std::string& str) {
+extern int TireTree::searchWord(TireNode* tree, const std::string& str) {
     TireNode* curr = tree;
     if(!curr) return SEARCH_ERR;
     for(auto it = str.begin(); it != str.end() and curr != nullptr; ++it) {
