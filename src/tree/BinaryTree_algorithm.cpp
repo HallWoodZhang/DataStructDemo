@@ -39,7 +39,7 @@ extern void preorderVisit(const BinaryTreeNode<T>* root,
     stk.push(root);
     while(!stk.empty()) {
         BinaryTreeNode<T>* curr = stk.top();
-       1 stk.pop();
+        stk.pop();
         visit(curr);
         if(curr->rchild != nullptr) stk.push(curr->rchild);
         if(curr->lchild != nullptr) stk.push(curr->lchild);
@@ -70,9 +70,9 @@ extern void postorderVisit(const BinaryTreeNode<T>* root,
     StackTag, void (*visit)(const BinaryTreeNode<T>*)) {
     if(!root) return ;
     BinaryTreeNode<T>* curr = root;
-    stack<BinaryTreeNode<T>* > stk;
+    std::stack<BinaryTreeNode<T>* > stk;
     do {
-        while(curr != nullprt) {
+        while(curr != nullptr) {
             stk.push(curr);
             curr = curr->lchild;
         }
@@ -89,5 +89,5 @@ extern void postorderVisit(const BinaryTreeNode<T>* root,
                 lchild_visited = true;
             }
         }
-    } while(!stk.empty())
+    } while(!stk.empty());
 }
