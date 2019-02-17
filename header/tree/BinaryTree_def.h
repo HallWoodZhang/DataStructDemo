@@ -1,6 +1,9 @@
 #ifndef BINARYTREE_DEF_H
 #define BINARYTREE_DEF_H
 
+#include <vector>
+#include <string>
+
 template <typename T>
 class BinaryTreeNode {
 public:
@@ -24,5 +27,13 @@ public:
     BinaryTreeNode* rchild;
     T val;
 };
+
+template <typename T>
+extern BinaryTreeNode<T>* buildBinaryTree(T* arr, int sz, const T& nil);
+
+template <typename T>
+extern BinaryTreeNode<T>* buildBinaryTree(const std::vector<T>& arr, const T& nil);
+
+extern BinaryTreeNode<char>* buildBinaryTree(const std::string& bytes, const char nil = '#');
 
 #endif
