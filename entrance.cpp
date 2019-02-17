@@ -30,6 +30,7 @@ static inline void TireTree_test(void) {
 
     // 检索字符串
     char s[][32] = {"Present in trie", "Not present in trie"};
+    
     printf("%s --- %s\n", "the", TireTree::searchWord(root, "the")>0?s[0]:s[1]);
     printf("%s --- %s\n", "these", TireTree::searchWord(root, "these")>0?s[0]:s[1]);
     printf("%s --- %s\n", "their", TireTree::searchWord(root, "their")>0?s[0]:s[1]);
