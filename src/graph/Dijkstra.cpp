@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "graph/graph_def.h"
-#include "graph/graph_algorithm.h"
+#include "graph_def.h"
+#include "graph_algorithm.h"
 
 using namespace std;
 

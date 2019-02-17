@@ -20,7 +20,6 @@ template <typename T> class ArcGraph;
 
 struct Road;
 
-
 struct Graph {
 public:
     int vexNum;

@@ -1,7 +1,7 @@
 #ifndef GRAPH_ALGORITHM_H
 #define GRAPH_ALGORITHM_H
 
-#include "graph_def.h"
+#include "./graph_def.h"
 
 template <typename T>
 int* Dijkstra(MatGraph<T>& G, int startVexId = 0);
