@@ -10,6 +10,7 @@ FILE(GLOB SOURCE_LIST "${CMAKE_CURRENT_SOURCE_DIR}/../src/*/*.cpp")
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../header/graph)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../header/sort)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../header/tree)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../header/string)
 
 add_executable(datastruct_demo ${SOURCE_LIST} ../entrance.cpp)
 
