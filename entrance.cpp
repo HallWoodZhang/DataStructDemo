@@ -2,11 +2,18 @@
 #include <cstdio>
 
 #include "TrieTree_algorithm.h"
+#include "sort_algorithm.h"
 
 using namespace std;
 
+template<typename T>
+bool larger(T const& l, T const& r) {
+    return l > r;
+}
+
 static inline void test();
 static inline void TrieTree_test();
+static inline void heapSort_test();
 
 int main(void) {
     cout << "This is a demo." << endl;
@@ -16,7 +23,8 @@ int main(void) {
 }
 
 static inline void test() {
-    TrieTree_test();
+    // TrieTree_test();
+    heapSort_test();
 }
 
 static inline void TrieTree_test(void) {
@@ -39,4 +47,22 @@ static inline void TrieTree_test(void) {
     printf("TrieTree Test  Finished!\n");
     delete root;
     root = nullptr;
+}
+
+static inline void heapSort_test() {
+    int arr[] = {10, 8, 9, 7, 6, 3, 4, 5, 1, 2, 0, 18, 22, 44};
+    cout << "before heap sort: ";
+    for(int i: arr) {
+        cout << i << ' ';
+    }
+    cout << endl;
+
+    // 设置一个大根堆
+    HeapSort(arr, sizeof(arr) / sizeof(int), larger);
+
+    cout << "after heap sort: ";
+    for(int i : arr) {
+        cout << i << ' ';
+    }
+    cout << endl;
 }

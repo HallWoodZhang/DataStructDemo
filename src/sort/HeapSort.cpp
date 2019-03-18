@@ -13,30 +13,27 @@ static inline void swap(T& lhs, T& rhs) {
 
 // measure the heap
 template <typename T>
-static void Sift(T heap[], int first, int last, bool (*cmp)(const T&, const T&)) {
+static void Sift(T heap[], int first, int last, bool (*cmp)(T const &, T const &)) {
     
     int i = first;
-    int j = i << 1;
+    int j = (i << 1) + 1;
 
-    T tmp = heap[i];
     while(j <= last) {
-        if(j < last && cmp(heap[j], heap[j+1])) ++j;
-        if(cmp(tmp, heap[j])) {
-            heap[i] = heap[j];
+        if(j < last && !cmp(heap[j], heap[j+1])) ++j;
+        if(!cmp(heap[i], heap[j])) {
+            swap(heap[i], heap[j]);
             i = j;
-            j = i << 1;
+            j = (i << 1) + 1;
         } else break;
     }
-    heap[i] = tmp;
 }
 
-// common sense: heap[0] is useless
 template <typename T>
-void HeapSort(T heap[], int lastHeapId, bool (*cmp)(const T&, const T&)) {
-    for(int i = lastHeapId >> 1; i >= 1; --i)
-        Sift(heap, i, lastHeapId, cmp);
-    for(int i = lastHeapId; i >= 2; --i) {
-        swap(heap[1], heap[i]);
-        Sift(heap, 1, i - 1, cmp);
+void HeapSort(T heap[], int len, bool (*cmp)(T const &, T const &)) {
+    for(int i = (len >> 1) - 1; i > 0; --i)
+        Sift(heap, i, len - 1, cmp);
+    for(int i = len - 1; i > 0; --i) {
+        swap(heap[0], heap[i]);
+        Sift(heap, 0, i - 1, cmp);
     }
 }
